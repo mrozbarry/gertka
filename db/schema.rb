@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202153629) do
+ActiveRecord::Schema.define(:version => 20130202162156) do
 
   create_table "agencies", :force => true do |t|
     t.string   "agency_phone"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20130202153629) do
     t.string   "trip_id"
     t.datetime "arrival_time"
     t.datetime "departure_time"
-    t.integer  "stop_id"
+    t.string   "stop_id"
     t.integer  "stop_sequence"
     t.string   "stop_headsign"
     t.integer  "pickup_type"
