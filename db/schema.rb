@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202165144) do
+ActiveRecord::Schema.define(:version => 20130202193434) do
 
   create_table "agencies", :force => true do |t|
     t.string   "agency_phone"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "calendars", ["end_date"], :name => "index_calendars_on_end_date"
+  add_index "calendars", ["friday"], :name => "index_calendars_on_friday"
+  add_index "calendars", ["monday"], :name => "index_calendars_on_monday"
+  add_index "calendars", ["saturday"], :name => "index_calendars_on_saturday"
+  add_index "calendars", ["service_id"], :name => "index_calendars_on_service_id"
+  add_index "calendars", ["start_date"], :name => "index_calendars_on_start_date"
+  add_index "calendars", ["sunday"], :name => "index_calendars_on_sunday"
+  add_index "calendars", ["thursday"], :name => "index_calendars_on_thursday"
+  add_index "calendars", ["tuesday"], :name => "index_calendars_on_tuesday"
+  add_index "calendars", ["wednesday"], :name => "index_calendars_on_wednesday"
 
   create_table "fare_attributes", :force => true do |t|
     t.string   "fare_id"
@@ -95,6 +106,9 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
     t.datetime "updated_at",          :null => false
   end
 
+  add_index "stop_times", ["stop_id"], :name => "index_stop_times_on_stop_id"
+  add_index "stop_times", ["trip_id"], :name => "index_stop_times_on_trip_id"
+
   create_table "stops", :force => true do |t|
     t.float    "stop_lat"
     t.string   "zone_id"
@@ -107,6 +121,8 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "stops", ["stop_id"], :name => "index_stops_on_stop_id", :unique => true
+
   create_table "trips", :force => true do |t|
     t.string   "block_id"
     t.string   "route_id"
@@ -117,5 +133,8 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  add_index "trips", ["service_id"], :name => "index_trips_on_service_id"
+  add_index "trips", ["trip_id"], :name => "index_trips_on_trip_id", :unique => true
 
 end
