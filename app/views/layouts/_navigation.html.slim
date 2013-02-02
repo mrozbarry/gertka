@@ -1,3 +1,14 @@
 = link_to "Gertka", root_path, :class => 'brand'
 ul.nav
-  li = link_to "Routes", root_path
+  li.dropdown
+    = link_to "<i class='icon-angle-down'></i> I want to...".html_safe, "#", data: { toggle: "dropdown" }, class: "dropdown-toggle"
+    ul.dropdown-menu
+      li
+        a href="#" Find nearby bus stops
+      li
+        a href="#" Find a route to...
+  li
+    = link_to "<i class='icon-thumbs-up'></i> Favorites".html_safe, "#settings"
+  li
+    = link_to "<i class='icon-cogs'></i> Settings".html_safe, "#settings"
+ 
