@@ -2,8 +2,30 @@
 @import 'font-awesome';
 
 
-body { padding-top: 50px; }
+body { padding-top: 40px; }
 .navbar .btn{margin-top: 0}
 
+#main.container-fluid{
+  padding:0;
+}
+
+#gmap_canvas img {
+  max-width: none;
+}
 
 @import "bootstrap-responsive";
+
+@media (max-width: 767px){
+  body{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  header.navbar{
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .navbar-fixed-top{
+    margin-bottom:0;
+  }
+}

@@ -1,0 +1,20 @@
+button.pull-right.btn Update
+h3 Settings
+.alert These settings are stored in a websession/cookie.  We don't take any of your personal information.
+form.form-inline
+  fieldset
+    legend Startup
+    label Default Zoom Level
+    br
+    input type="text" name="default_zoom" value="#{@session["default_zoom"]}"
+    br
+    
+    input#remember_trip type="checkbox" name="remember_trip" #{@session["remember_trip"] ? "checkbox='checkbox'" : ""}
+    label for="remember_trip"
+      |&nbsp;Remeber by last trip.
+    br
+    
+    legend Behaviour
+    label Minimum time between queries
+    br
+    input type="text" name="query_delay" value="#{@session["query_delay"]}" title="Higher values mean lower battery consumption"
