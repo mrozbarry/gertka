@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
 
   create_table "calendars", :force => true do |t|
     t.string   "service_id"
-    t.datetime "start_dat"
+    t.datetime "start_date"
     t.datetime "end_date"
     t.boolean  "monday"
     t.boolean  "tuesday"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20130202165144) do
     t.integer  "stop_sequence"
     t.string   "stop_headsign"
     t.integer  "pickup_type"
-    t.integer  "dropoff_type"
+    t.integer  "drop_off_type"
     t.float    "shape_dist_traveled"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

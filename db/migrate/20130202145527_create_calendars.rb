@@ -2,7 +2,7 @@ class CreateCalendars < ActiveRecord::Migration
   def change
     create_table :calendars do |t|
       t.string :service_id
-      t.datetime :start_dat
+      t.datetime :start_date
       t.datetime :end_date
       t.boolean :monday
       t.boolean :tuesday
@@ -10,7 +10,7 @@ class CreateCalendars < ActiveRecord::Migration
       t.boolean :thursday
       t.boolean :friday
       t.boolean :saturday
-      t.boolean :subday
+      t.boolean :sunday
 
       t.timestamps
     end
