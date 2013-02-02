@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202162156) do
+ActiveRecord::Schema.define(:version => 20130202165144) do
 
   create_table "agencies", :force => true do |t|
     t.string   "agency_phone"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130202162156) do
     t.boolean  "thursday"
     t.boolean  "friday"
     t.boolean  "saturday"
-    t.boolean  "subday"
+    t.boolean  "sunday"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
