@@ -7,6 +7,7 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 
+gem "slim-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,21 +19,40 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'bootstrap-sass'
+  gem 'font-awesome-sass-rails'
+
+  gem 'bourbon'
 end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'simple_form'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
+gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :development do
+  gem 'awesome_print'
+  gem "better_errors", ">= 0.3.2"
+  gem "binding_of_caller", ">= 0.6.8"
+  gem "quiet_assets", ">= 1.0.1"
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :test do
+  gem "capybara", "~> 1.1.3"
+  # gem 'poltergeist'
+  # gem 'capybara-email'
+  gem "database_cleaner", ">= 0.8.0"
 
-# To use debugger
-# gem 'debugger'
+  gem 'faker'
+  gem 'mocha', require: 'mocha/api'
+
+  # gem 'brakeman'
+
+  gem 'guard-rspec'
+  # gem 'guard-brakeman'
+  gem 'guard-livereload'
+  gem 'rb-fsevent', '~> 0.9.1',  require: false
+end
