@@ -24,7 +24,7 @@ console.log(r);
           title: '[' + this.stop_id + '] ' + this.name
         });
         google.maps.event.addListener(stopMarker, 'click', function() {
-            var cnt = '<h2>[' + self.stop_id + '] ' + self.name + '</h2>;
+            var cnt = '<h2>[' + self.stop_id + '] ' + self.name + '</h2>';
             $(self.stop_times).each(function(){
               cnt += '<br />' + this.route_id + ' at ' + this.arrival_time;
             });
