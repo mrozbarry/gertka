@@ -6,9 +6,9 @@ class Stop < ActiveRecord::Base
   scope :busses_today, lambda {
     wday = [:sunday,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday][Date.today.wday]
 
-    Stop.joins(:stop_times => {:trip => :calendar}).where(:calendars => {
+    Stop.includes(:stop_times => {:trip => :calendar}).where(:calendars => {
       wday => true,
-      :start_dat => (Time.at(0)..Time.now),
+      :start_date => (Time.at(0)..Time.now),
       :end_date => (Time.now..Time.parse('2038-01-01')),
     })
   }
