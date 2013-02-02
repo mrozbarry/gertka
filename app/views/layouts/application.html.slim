@@ -9,7 +9,7 @@ html
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&key=AIzaSyASPqGZ9ADO8hNFYGNBDHAyFSpncCbRICo"
     = csrf_meta_tags
     = yield(:head)
-  body class="#{controller_name} #{action_name}" onload="init_gmaps"
+  body class="#{controller_name} #{action_name}"
     header.navbar.navbar-fixed-top
       nav.navbar-inner
         .container
