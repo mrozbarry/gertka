@@ -1,0 +1,6 @@
+<script>
+	navigator.geolocation.watchPosition(function(pos){
+		alert(pos.coords.latitude + ',' + pos.coords.longitude + ' with accuracy: ' + pos.coords.accuracy + ' last sampled: ' + new Date(pos.timestamp));
+	}, function(e){alert("Some kinda GPS error."); console.log(e);},
+	{maximumAge: 0, enableHighAccuracy: true})
+</script>
