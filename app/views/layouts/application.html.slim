@@ -11,10 +11,10 @@ html
   body class="#{controller_name} #{action_name}"
     header.navbar.navbar-fixed-top
       nav.navbar-inner
-        .container
+        .container-fluid
           = render 'layouts/navigation'
-    #main role="main"
-      .container
+    #main
+      .container-fluid
         .content
           = render 'layouts/messages'
           - if show_title?
