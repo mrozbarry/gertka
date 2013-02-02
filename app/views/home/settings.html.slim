@@ -6,15 +6,15 @@ form.form-inline
     legend Startup
     label Default Zoom Level
     br
-    input type="text" name="default_zoom" value="#{@session["default_zoom"]}"
+    input type="text" name="default_zoom" value="#{@settings[:default_zoom]}"
     br
     
-    input#remember_trip type="checkbox" name="remember_trip" #{@session["remember_trip"] ? "checkbox='checkbox'" : ""}
+    input#remember_trip type="checkbox" name="remember_trip" checkbox="#{@settings[:remember_trip] ? "checkbox" : ""}"
     label for="remember_trip"
-      |&nbsp;Remeber by last trip.
+      |  Remeber by last trip.
     br
     
     legend Behaviour
     label Minimum time between queries
     br
-    input type="text" name="query_delay" value="#{@session["query_delay"]}" title="Higher values mean lower battery consumption"
+    input type="text" name="query_delay" value="#{@settings[:query_delay]}" title="Higher values mean lower battery consumption"
