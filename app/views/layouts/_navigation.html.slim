@@ -8,7 +8,7 @@ ul.nav
       li
         a href="#" Find a route to...
   li
-    = link_to "<i class='icon-thumbs-up'></i> Favorites".html_safe, "#settings"
+    = link_to "<i class='icon-thumbs-up'></i> Favorites".html_safe, "#faves"
   li
-    = link_to "<i class='icon-cogs'></i> Settings".html_safe, "#settings"
+    = link_to "<i class='icon-cogs'></i> Settings".html_safe, "#settings", :onclick => "toggleSettings(); return false;"
  

@@ -1,15 +1,16 @@
 
 var map = null;
   
-console.log( google, "i'm here lol" );
-
 $(document).ready(function(){
   navigator.geolocation.watchPosition(
     function(pos){
       if ( map == null ) {
-        console.log( pos );
         // pos.coords.latitude, pos.coords.longitude, pos.coords.accuracy, new Date(pos.timestamp)
-        console.log( "woo" )
+        var h= ( getViewport().height - parseInt($("div.header.navbar.navbar-fixed-top").css("height")) ) - 10;
+        console.log( h );
+        $("#gmap_canvas").css({
+          "height": h + "px"
+        });
         var mapOptions = {
           center: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
           zoom: 17,
@@ -20,7 +21,6 @@ $(document).ready(function(){
           position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
           map: map
         });
-        console.log( "Position already grabbed" )
       }
     }, function(e){
       console.log("GPS Exception", e);
