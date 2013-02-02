@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  route_long_name: MyString
+  route_id: 1
+  route_type: 1
+  route_text_color: MyString
+  agency_id: MyString
+  route_color: MyString
+  route_url: MyString
+  route_short_name: MyString
+
+two:
+  route_long_name: MyString
+  route_id: 1
+  route_type: 1
+  route_text_color: MyString
+  agency_id: MyString
+  route_color: MyString
+  route_url: MyString
+  route_short_name: MyString
