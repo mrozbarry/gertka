@@ -12,11 +12,14 @@ $(document).ready(function(){
         console.log( "woo" )
         var mapOptions = {
           center: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          zoom: 5,
+          zoom: 17,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map( $("#gmap_canvas")[0], mapOptions);
-      } else {
+        var me = new google.maps.Marker( {
+          position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+          map: map
+        });
         console.log( "Position already grabbed" )
       }
     }, function(e){
