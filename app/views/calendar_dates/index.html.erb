@@ -1,0 +1,27 @@
+<h1>Listing calendar_dates</h1>
+
+<table>
+  <tr>
+    <th>Service</th>
+    <th>Date</th>
+    <th>Exception type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendar_dates.each do |calendar_date| %>
+  <tr>
+    <td><%= calendar_date.service_id %></td>
+    <td><%= calendar_date.date %></td>
+    <td><%= calendar_date.exception_type %></td>
+    <td><%= link_to 'Show', calendar_date %></td>
+    <td><%= link_to 'Edit', edit_calendar_date_path(calendar_date) %></td>
+    <td><%= link_to 'Destroy', calendar_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar date', new_calendar_date_path %>

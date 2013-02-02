@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Agency phone:</b>
+  <%= @agency.agency_phone %>
+</p>
+
+<p>
+  <b>Agency url:</b>
+  <%= @agency.agency_url %>
+</p>
+
+<p>
+  <b>Agency:</b>
+  <%= @agency.agency_id %>
+</p>
+
+<p>
+  <b>Agency name:</b>
+  <%= @agency.agency_name %>
+</p>
+
+<p>
+  <b>Agency timezone:</b>
+  <%= @agency.agency_timezone %>
+</p>
+
+<p>
+  <b>Agency lang:</b>
+  <%= @agency.agency_lang %>
+</p>
+
+
+<%= link_to 'Edit', edit_agency_path(@agency) %> |
+<%= link_to 'Back', agencies_path %>

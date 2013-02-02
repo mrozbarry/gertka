@@ -1,0 +1,41 @@
+<h1>Listing calendars</h1>
+
+<table>
+  <tr>
+    <th>Service</th>
+    <th>Start dat</th>
+    <th>End date</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Subday</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendars.each do |calendar| %>
+  <tr>
+    <td><%= calendar.service_id %></td>
+    <td><%= calendar.start_dat %></td>
+    <td><%= calendar.end_date %></td>
+    <td><%= calendar.monday %></td>
+    <td><%= calendar.tuesday %></td>
+    <td><%= calendar.wednesday %></td>
+    <td><%= calendar.thursday %></td>
+    <td><%= calendar.friday %></td>
+    <td><%= calendar.saturday %></td>
+    <td><%= calendar.subday %></td>
+    <td><%= link_to 'Show', calendar %></td>
+    <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
+    <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar', new_calendar_path %>
