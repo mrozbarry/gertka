@@ -5,9 +5,10 @@ var myPos = null;
 
 function update_stops(pos,route) {
   var routeQ = route ? '&route=' + route : '';
-  jQuery.ajax("/stops.json?latitude=" + pos.coords.latitude + '&longitude=' + pos.coords.longitude + '&distance=10' + routeQ, {
+  jQuery.ajax("/stops.json?latitude=" + pos.coords.latitude + '&longitude=' + pos.coords.longitude + '&distance=2' + routeQ, {
     dataType: "json",
     success: function(r){
+console.log(r);
       $(stops).each(function(){
         this.setMap(null);
       });
@@ -23,8 +24,13 @@ function update_stops(pos,route) {
           title: '[' + this.stop_id + '] ' + this.name
         });
         google.maps.event.addListener(stopMarker, 'click', function() {
+            var cnt = '<h2>[' + self.stop_id + '] ' + self.name + '</h2>;
+            $(self.stop_times).each(function(){
+              cnt += '<br />' + this.route_id + ' at ' + this.arrival_time;
+            });
+
           var infowindow = new google.maps.InfoWindow({
-            content: self.name // TODO: useful data goes here
+            content: cnt
           });
           infowindow.open(map, stopMarker);
         });
