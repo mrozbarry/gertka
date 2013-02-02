@@ -13,15 +13,14 @@ html
       nav.navbar-inner
         .container-fluid
           = render 'layouts/navigation'
-    #main
-      .container-fluid
-        .content
-          = render 'layouts/messages'
-          - if show_title?
-            .page-header
-              h1 = yield(:title)
-          = yield
-          footer
+    .container-fluid#main
+      .content
+        = render 'layouts/messages'
+        - if show_title?
+          .page-header
+            h1 = yield(:title)
+        = yield
+        footer
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&key=AIzaSyASPqGZ9ADO8hNFYGNBDHAyFSpncCbRICo"
     = javascript_include_tag "gmaps"
           
