@@ -1,6 +1,4 @@
 class Stop < ActiveRecord::Base
-  attr_accessible :location_type, :stop_desc, :stop_id, :stop_lat, :stop_lon, :stop_name, :zone_id
-
   has_many :stop_times, :primary_key => :stop_id
 
   scope :busses_today, lambda {
