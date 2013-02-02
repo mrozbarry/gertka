@@ -8,7 +8,7 @@ class CreateStopTimes < ActiveRecord::Migration
       t.integer :stop_sequence
       t.string :stop_headsign
       t.integer :pickup_type
-      t.integer :dropoff_type
+      t.integer :drop_off_type
       t.float :shape_dist_traveled
 
       t.timestamps
