@@ -76,6 +76,7 @@ GEM
     font-awesome-sass-rails (3.0.0.1)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    geocoder (1.1.6)
     guard (1.6.2)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
@@ -226,6 +227,7 @@ DEPENDENCIES
   factory_girl_rails (>= 4.1.0)
   faker
   font-awesome-sass-rails
+  geocoder
   guard-livereload
   guard-rspec
   jquery-rails
