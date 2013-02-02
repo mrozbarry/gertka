@@ -1,4 +1,6 @@
 class Stop < ActiveRecord::Base
+ reverse_geocoded_by :stop_lat, :stop_lon
+
   has_many :stop_times, :primary_key => :stop_id
 
   scope :busses_today, lambda {
