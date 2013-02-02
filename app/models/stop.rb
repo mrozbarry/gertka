@@ -14,4 +14,13 @@ class Stop < ActiveRecord::Base
         }).
         group('stops.stop_id')
   }
+
+  scope :route_soon, lambda { |route|
+    joins(:stop_times => {:trip => [:calendar, :route]}).
+      where(
+        :stop_times => {:arrival_time => ((Time.now - 10.minutes) .. (Time.now. + 1.hour))},
+        :routes => {:route_id => route}
+      ).
+      group('stops.stop_id').busses_today
+  }
 end

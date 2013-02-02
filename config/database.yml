@@ -20,6 +20,7 @@ test:
 
 production:
   adapter: postgresql
+  encoding: unicode
   host: ec2-54-243-230-118.compute-1.amazonaws.com
   database: dco91hgv490555
   port: 5432
