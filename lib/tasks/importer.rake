@@ -31,7 +31,7 @@ namespace :importer do
       next if item == '.' or item == '..'
       if MAPPING[item]
         puts "Processing #{item} as #{MAPPING[item]}"
-        transaction do
+        ActiveRecord::Base.transaction do
           CSV.read("#{tmp_dir}/#{item}", headers: true).each do |row|
             begin
               MAPPING[item].create!(row.to_hash)
