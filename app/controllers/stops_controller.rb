@@ -12,19 +12,12 @@ class StopsController < ApplicationController
 
     result = []
     @stops.each do |stop|
-      stop_times = stop.stop_times.where(:arrival_time => [Time.zone.now - 5.hours .. Time.zone.now - 4.hour])
+      stop_times = stop.stop_times.includes(:trip).select([:arrival_time, 'trip.route_id']).where(:arrival_time => [Time.zone.now - 5.hours .. Time.zone.now - 4.hour])
       stop_times_hash = []
       stop_times.each do |stop_time|
         stop_times_hash << {
-          :trip_id => stop_time.trip_id,
-          :arrival_time => stop_time.arrival_time,
-          :departure_time => stop_time.departure_time,
-          :stop_id => stop_time.stop_id,
-          :stop_sequence => stop_time.stop_sequence,
-          :stop_headsign => stop_time.stop_headsign,
-          :pickup_type => stop_time.pickup_type,
-          :drop_off_type => stop_time.drop_off_type,
-          :shape_dist_traveled => stop_time.shape_dist_traveled
+          :route_id => stop_time.trip.try(:route_id),
+          :arrival_time => stop_time.arrival_time
         }
       end
       result << {
