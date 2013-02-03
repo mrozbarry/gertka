@@ -4,9 +4,9 @@ ul.nav
     = link_to "<i class='icon-angle-down'></i> I want to...".html_safe, "#", data: { toggle: "dropdown" }, class: "dropdown-toggle"
     ul.dropdown-menu
       li
-        a href="#" Find nearby bus stops
+        a#findNearby href="#" Find nearby bus stops
       li
-        a href="#" Find a route to...
+        a#travelTo href="#" Travel to...
   li.dropdown
     = link_to "<i class='icon-thumbs-up'></i> Favorites".html_safe, "#faves", data: { toggle: "dropdown" }, class: "dropdown-toggle"
     ul.dropdown-menu
@@ -15,6 +15,6 @@ ul.nav
   li
     = link_to "<i class='icon-cogs'></i> Settings".html_safe, "#settings", :onclick => "toggleSettings(); return false;"
 
-form.navbar-search.pull-right style="width:15%" 
+form.navbar-search.pull-right style="width:15%"
   input#route type="text" placeholder="Gimme a route" style="width:100%;"
  

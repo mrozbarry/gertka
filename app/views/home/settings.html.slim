@@ -1,4 +1,6 @@
-button.pull-right.btn Update
+div.btn-group.pull-right
+  button.btn Update
+  button.btn onclick="toggleSettings();" Close
 h3 Settings
 .alert These settings are stored in a websession/cookie.  We don't take any of your personal information.
 form.form-inline
@@ -9,9 +11,8 @@ form.form-inline
     input type="text" name="default_zoom" value="#{@settings[:default_zoom]}"
     br
     
-    input#remember_trip type="checkbox" name="remember_trip" checkbox="#{@settings[:remember_trip] ? "checkbox" : ""}"
-    label for="remember_trip"
-      |  Remeber by last trip.
+    label.checkbox
+      input#remember_trip type="checkbox" name="remember_trip" checkbox="#{@settings[:remember_trip] ? "checkbox" : ""}"  Remeber by last trip.
     br
     
     legend Behaviour

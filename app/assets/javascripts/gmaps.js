@@ -1,14 +1,14 @@
 var map = null;
-
 var stops = [];
 var myPos = null;
+var bounds = null;
 
 function update_stops(pos,route) {
   var routeQ = route ? '&route=' + route : '';
   jQuery.ajax("/stops.json?latitude=" + pos.coords.latitude + '&longitude=' + pos.coords.longitude + '&distance=2' + routeQ, {
     dataType: "json",
     success: function(r){
-console.log(r);
+      console.log(r);
       $(stops).each(function(){
         this.setMap(null);
       });
@@ -24,9 +24,12 @@ console.log(r);
           title: '[' + this.stop_id + '] ' + this.name
         });
         google.maps.event.addListener(stopMarker, 'click', function() {
-            var cnt = '<h2>[' + self.stop_id + '] ' + self.name + '</h2>';
+            var cnt = '<b>' + self.name + '</b>';
+            var num = 10;
             $(self.stop_times).each(function(){
+              if ( num == 0 ) return;
               cnt += '<br />' + this.route_id + ' at ' + this.arrival_time;
+              num -= 1;
             });
 
           var infowindow = new google.maps.InfoWindow({
@@ -43,7 +46,6 @@ console.log(r);
 function updateMapSize()
 {
   var h= ( getViewport().height - $("div.header.navbar.navbar-fixed-top").height() ) - 50;
-  console.log( h );
   $("#gmap_canvas").css({
     "height": h + "px"
   });
@@ -54,8 +56,9 @@ $(window).resize(function(){
 })
 
 $(document).ready(function(){
-  $('#route').keyup(function(){
-    update_stops(myPos, $(this).val());
+  $("form.navbar-search.pull-right").submit(function(){
+    update_stops(myPos, $("#route").val());
+    return false;
   });
 
   navigator.geolocation.watchPosition(
@@ -66,8 +69,9 @@ $(document).ready(function(){
         updateMapSize();
         var mapOptions = {
           center: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          zoom: 17,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          draggable: false
         };
         map = new google.maps.Map( $("#gmap_canvas")[0], mapOptions);
 /* I know where I am
@@ -77,10 +81,11 @@ $(document).ready(function(){
         });
 */
       } else {
-        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        map.setCenter( new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude ) );
+        bounds = map.getBounds();
       }
 
-     update_stops(pos);
+     //update_stops(pos);
    }, function(e){
       console.log("GPS Exception", e);
     },

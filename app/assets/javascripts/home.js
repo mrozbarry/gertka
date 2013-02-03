@@ -1,4 +1,6 @@
 
+var mode = null;
+
 $(document).ready(function(){
   
   $("#settings").load("/settings").hide();
